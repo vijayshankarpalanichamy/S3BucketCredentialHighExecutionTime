@@ -1,9 +1,7 @@
 # S3Bucket IAM Credential Issue
 
-This outlines the process for replicating the issue of 'Amazon.Util.EC2InstanceMetadata - Unable to contact EC2 Metadata service to obtain a metadata token. Attempting to access IMDS without a token.' as well as the prolonged execution time of the GetObjectMetadataRequest Method.
-
 **S3WebAPI and MessageProcessor Configuration Guide**
-This guide provides instructions on how to configure and utilize the S3WebAPI solution alongside the MessageProcessor solution for managing S3 objects and their existence validation.
+This guide provides instructions on how to configure and utilize the S3WebAPI in the MessageProcessor to validate the S3object existence validation. (The S3WebAPI throws the 'Amazon.Util.EC2InstanceMetadata - Unable to contact EC2 Metadata service to obtain a metadata token. Attempting to access IMDS without a token.' when larger volume concurrent API requests to validate the S3object existance.)
 
 Prerequisites
 - .NET Core SDK, .NET 4.8 installed on your machine.
