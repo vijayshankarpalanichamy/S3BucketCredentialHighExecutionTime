@@ -27,7 +27,7 @@ namespace S3WebAPI.Controllers
 
         private async Task ValidateSecureURI(RequestModel requestModel)
         {
-           await ProcessS3Bucket(requestModel).WaitAsync(TimeSpan.FromMinutes(2));
+           await ProcessS3Bucket(requestModel).WaitAsync(TimeSpan.FromMinutes(2));//Replaced the Wait with WaitAsync, after this change the ClientExecution has reduced and max is 40 seconds
            //DB Operations
         }
 

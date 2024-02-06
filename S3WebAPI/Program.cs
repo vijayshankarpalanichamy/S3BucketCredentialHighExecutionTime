@@ -68,6 +68,11 @@ builder.Services.AddDefaultAWSOptions(x =>
     {
         awsOption.Credentials = new BasicAWSCredentials(appSettings.AccessKey, appSettings.SecretKey);
     }
+    else
+    {
+        awsOption.Credentials = FallbackCredentialsFactory.GetCredentials(true); //Also tested by commenting to use the default credentials from EC2 Instance
+    }    
+    
     return awsOption;
 });
 
