@@ -1,6 +1,6 @@
 # S3Bucket IAM Credential Issue
 
-**S3WebAPI and MessageProcessor Configuration Guide**
+**S3WebAPI and MessageProcessor Configuration Guide**:
 This guide provides instructions on how to configure and utilize the S3WebAPI in the MessageProcessor to validate the S3object existence validation. (The S3WebAPI throws the 'Amazon.Util.EC2InstanceMetadata - Unable to contact EC2 Metadata service to obtain a metadata token. Attempting to access IMDS without a token.' when larger volume concurrent API requests to validate the S3object existance.)
 
 Prerequisites
