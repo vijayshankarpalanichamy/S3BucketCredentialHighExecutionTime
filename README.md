@@ -160,3 +160,45 @@ public class AmazonS3Bucket : IAmazonS3Bucket
     }
 }
 ```
+S3WebApi# Error Log
+2024-02-06 12:05:03,685 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-02-06 12:05:03,710 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-02-06 12:05:03,711 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\MDP\S3BucketHelper\
+2024-02-06 12:07:12,797 [14] INFO  Microsoft.Hosting.Lifetime - Application is shutting down...
+2024-02-06 12:07:50,765 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
+2024-02-06 12:07:50,775 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
+2024-02-06 12:07:50,775 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\MDP\S3BucketHelper\
+2024-02-06 12:07:50,883 [7] INFO  Amazon.Runtime.Internal.Settings.UserCrypto - UserCrypto is not supported.  This may be due to use of a non-Windows operating system or Windows Nano Server, or the current user account may not have its profile loaded. CryptProtectData failed. Error Code: 2
+2024-02-06 12:07:50,924 [7] INFO  AWSSDK - Found credentials using the AWS SDK's default credential search
+2024-02-06 12:07:50,938 [7] INFO  Amazon.Runtime.Internal.EnvironmentVariableInternalConfiguration - The environment variable AWS_ENABLE_ENDPOINT_DISCOVERY was not set with a value.
+2024-02-06 12:07:50,939 [7] INFO  Amazon.Runtime.Internal.EnvironmentVariableInternalConfiguration - The environment variable AWS_MAX_ATTEMPTS was not set with a value.
+2024-02-06 12:07:50,939 [7] INFO  Amazon.Runtime.Internal.EnvironmentVariableInternalConfiguration - The environment variable AWS_RETRY_MODE was not set with a value.
+2024-02-06 12:07:50,939 [7] INFO  Amazon.Runtime.Internal.EnvironmentVariableInternalConfiguration - The environment variable AWS_EC2_METADATA_SERVICE_ENDPOINT was not set with a value.
+2024-02-06 12:07:50,940 [7] INFO  Amazon.Runtime.Internal.EnvironmentVariableInternalConfiguration - The environment variable AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE was not set with a value.
+2024-02-06 12:07:50,940 [7] INFO  Amazon.Runtime.Internal.EnvironmentVariableInternalConfiguration - The environment variable AWS_USE_DUALSTACK_ENDPOINT was not set with a value.
+2024-02-06 12:07:50,940 [7] INFO  Amazon.Runtime.Internal.EnvironmentVariableInternalConfiguration - The environment variable AWS_USE_FIPS_ENDPOINT was not set with a value.
+2024-02-06 12:07:50,940 [7] INFO  Amazon.Runtime.Internal.EnvironmentVariableInternalConfiguration - The environment variable AWS_IGNORE_CONFIGURED_ENDPOINT_URLS was not set with a value.
+2024-02-06 12:07:50,941 [7] INFO  Amazon.Runtime.Internal.EnvironmentVariableInternalConfiguration - The environment variable AWS_DISABLE_REQUEST_COMPRESSION was not set with a value.
+2024-02-06 12:07:50,941 [7] INFO  Amazon.Runtime.Internal.EnvironmentVariableInternalConfiguration - The environment variable AWS_REQUEST_MIN_COMPRESSION_SIZE_BYTES was not set with a value.
+2024-02-06 12:07:50,941 [7] INFO  Amazon.Runtime.Internal.EnvironmentVariableInternalConfiguration - The environment variable AWS_SDK_UA_APP_ID was not set with a value.
+2024-02-06 12:07:50,944 [7] INFO  Amazon.Runtime.Internal.ProfileInternalConfiguration - Unable to find a profile named 'default' in store Amazon.Runtime.CredentialManagement.CredentialProfileStoreChain
+**2024-02-06 12:08:07,830 [7] ERROR Amazon.Util.EC2InstanceMetadata - Unable to contact EC2 Metadata service to obtain a metadata token. Attempting to access IMDS without a token.**
+**System.Threading.Tasks.TaskCanceledException: The request was canceled due to the configured HttpClient.Timeout of 5 seconds elapsing.**
+ ---> System.TimeoutException: A task was canceled.
+ ---> System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at System.Threading.Tasks.TaskCompletionSourceWithCancellation`1.WaitWithCancellationAsync(CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttp11ConnectionAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithVersionDetectionAndRetryAsync(HttpRequestMessage request, Boolean async, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsyncCore(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.RedirectHandler.SendAsync(HttpRequestMessage request, Boolean async, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   --- End of inner exception stack trace ---
+   --- End of inner exception stack trace ---
+   at System.Net.Http.HttpClient.HandleFailure(Exception e, Boolean telemetryStarted, HttpResponseMessage response, CancellationTokenSource cts, CancellationToken cancellationToken, CancellationTokenSource pendingRequestsCts)
+   at System.Net.Http.HttpClient.<SendAsync>g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)
+   at Amazon.Runtime.Internal.Util.AsyncHelpers.<>c__DisplayClass1_0`1.<<RunSync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Amazon.Runtime.Internal.Util.AsyncHelpers.ExclusiveSynchronizationContext.BeginMessageLoop()
+   at Amazon.Runtime.Internal.Util.AsyncHelpers.RunSync[T](Func`1 workItem)
+   at Amazon.Util.AWSSDKUtils.ExecuteHttpRequest(Uri uri, String requestType, String content, TimeSpan timeout, IWebProxy proxy, IDictionary`2 headers)
+   at Amazon.Util.EC2InstanceMetadata.FetchApiToken(Int32 tries)
