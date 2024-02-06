@@ -44,8 +44,8 @@ builder.Services.AddApiVersioning(options =>
     options.AssumeDefaultVersionWhenUnspecified = true;
     options.DefaultApiVersion = new ApiVersion(1, 0);
 });
-builder.Services.Configure<AWSAppSettingsModel>(builder.Configuration.GetSection("AWSAppSettings"));
 
+builder.Services.Configure<AWSAppSettingsModel>(builder.Configuration.GetSection("AWSAppSettings"));
 builder.Services.AddDefaultAWSOptions(x =>
 {
     var optionSettings = x.GetService<IOptions<AWSAppSettingsModel>>();
