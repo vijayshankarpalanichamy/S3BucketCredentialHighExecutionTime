@@ -78,6 +78,11 @@ builder.Services.AddDefaultAWSOptions(x =>
     {
         awsOption.Credentials = new BasicAWSCredentials(appSettings.AccessKey, appSettings.SecretKey);
     }
+    else
+    {
+       awsOption.Credentials = FallbackCredentialsFactory.GetCredentials(true); //**Also tested by commenting to use the default credentials from EC2 Instance**
+    }
+
     return awsOption;
 });
 
@@ -107,7 +112,7 @@ public class S3BucketProxyController : ControllerBase
 
     private async Task ValidateSecureURI(RequestModel requestModel)
     {
-       await ProcessS3Bucket(requestModel).WaitAsync(TimeSpan.FromMinutes(2));
+       await ProcessS3Bucket(requestModel).WaitAsync(TimeSpan.FromMinutes(2)); //**Replaced the Wait with WaitAsync, after this change the ClientExecution has reduced and max is 40 seconds**
        //Actual program has non Async DB operations.
     }
 
