@@ -165,7 +165,7 @@ public class AmazonS3Bucket : IAmazonS3Bucket
     }
 }
 ```
-**S3WebApi # Error Log**
+**S3WebApi # Error Log(The initialization of the S3WebApi service requires more concurrent calls triggered by requests from the MessageProcessor.)**
 ```
 2024-02-06 12:05:03,685 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
 2024-02-06 12:05:03,710 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
