@@ -11,8 +11,7 @@ Prerequisites
 - Visual Studio or any other preferred IDE for .NET development.
 
 Configuration Steps
-1. Clone the Repositories the S3WebAPI and MessageProcessor solutions
-2. The EC2 instance machine IAM enabled to access the S3Bucket
+1. Clone Repositories S3WebAPI and MessageProcessor solutions, in a EC2 instance machine configured with IAM Role to access the S3Bucket
 3. Configure S3WebAPI Solution
    1. Open the S3WebAPI.sln solution in your preferred IDE.
    2. Navigate to the appsettings.json file within the S3WebAPI project.
