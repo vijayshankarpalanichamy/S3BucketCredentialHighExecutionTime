@@ -165,7 +165,8 @@ public class AmazonS3Bucket : IAmazonS3Bucket
     }
 }
 ```
-S3WebApi# Error Log
+**S3WebApi # Error Log**
+```
 2024-02-06 12:05:03,685 [1] INFO  Microsoft.Hosting.Lifetime - Application started. Press Ctrl+C to shut down.
 2024-02-06 12:05:03,710 [1] INFO  Microsoft.Hosting.Lifetime - Hosting environment: Production
 2024-02-06 12:05:03,711 [1] INFO  Microsoft.Hosting.Lifetime - Content root path: C:\MDP\S3BucketHelper\
@@ -207,3 +208,4 @@ S3WebApi# Error Log
    at Amazon.Runtime.Internal.Util.AsyncHelpers.RunSync[T](Func`1 workItem)
    at Amazon.Util.AWSSDKUtils.ExecuteHttpRequest(Uri uri, String requestType, String content, TimeSpan timeout, IWebProxy proxy, IDictionary`2 headers)
    at Amazon.Util.EC2InstanceMetadata.FetchApiToken(Int32 tries)
+```
